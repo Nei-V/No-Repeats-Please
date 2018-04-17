@@ -20,7 +20,7 @@ function permAlone() {
     //var arr = str.split('');
     let permutations = [];
     let tmp;
-
+ let counter=0;
     // Return 0 if str contains same character.
     if (str.match(regex) !== null && str.match(regex)[0] === str) return 0;
     //the first place in match result match[0] represents the entire matched string
@@ -28,29 +28,31 @@ function permAlone() {
 
     // Function to swap variables' content.
     function swap(index1, index2) {
-        console.log("now runs swap with i",index1,"and arrayLength-1",index2);
+        console.log("now runs swap with i",index1,"and arrayLength-1",index2, "on array",arr);
         tmp = arr[index1];
         arr[index1] = arr[index2];
         arr[index2] = tmp;
+        console.log("and we get new arr",arr);
     };
 
     // Generate arrays of permutations using the algorithm.
     function generate(arrayLength) {
+        console.log("now we entered generate with length",arrayLength, "and array",arr);
         if (arrayLength === 1) {
             // We use join as we create  the permutation arrays - to strings
             permutations.push(arr.join(''));
+            console.log("length is 1,i (counter) is", counter," and we put in permutaion",arr.join(''));
         } else {
             for (let i = 0; i != arrayLength; ++i) {
-                console.log("length", arrayLength);
-                console.log("i", i);
-
+                console.log("now we are in else with i",i,"with length",arrayLength);
                 generate(arrayLength - 1);
+                counter=i;
                 swap(arrayLength % 2 ? 0 : i, arrayLength - 1);
                 //if array length is even, use 0, otherwise use i - part of the Heap algorithm
                 //swap runs after inserting new array in permutations
             };
         };
-        console.log("permutations", permutations);
+        console.log("Finish gerentate: permutations", permutations, "and i (counter) was",counter, "and length",arrayLength,"and array at exit generate", arr);
     };
 
     generate(arr.length);
