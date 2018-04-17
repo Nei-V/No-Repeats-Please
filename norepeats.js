@@ -4,7 +4,8 @@
 
 
 function permAlone() {
-    /*
+    /*using the hints and learning from them.
+    
     const OriginalString = document.getElementById("string").value;
     let finalArray = [];
     originalArray = Array.from(OriginalString);
@@ -20,7 +21,7 @@ function permAlone() {
     //var arr = str.split('');
     let permutations = [];
     let tmp;
- let counter=0;
+ 
     // Return 0 if str contains same character.
     if (str.match(regex) !== null && str.match(regex)[0] === str) return 0;
     //the first place in match result match[0] represents the entire matched string
@@ -41,18 +42,18 @@ function permAlone() {
         if (arrayLength === 1) {
             // We use join as we create  the permutation arrays - to strings
             permutations.push(arr.join(''));
-            console.log("length is 1,i (counter) is", counter," and we put in permutaion",arr.join(''));
+            console.log("length is 1, and we put in permutaion",arr.join(''));
         } else {
             for (let i = 0; i != arrayLength; ++i) {
                 console.log("now we are in else with i",i,"with length",arrayLength);
                 generate(arrayLength - 1);
-                counter=i;
+                
                 swap(arrayLength % 2 ? 0 : i, arrayLength - 1);
                 //if array length is even, use 0, otherwise use i - part of the Heap algorithm
                 //swap runs after inserting new array in permutations
             };
         };
-        console.log("Finish gerentate: permutations", permutations, "and i (counter) was",counter, "and length",arrayLength,"and array at exit generate", arr);
+        console.log("Finish gerentate: permutations", permutations, "and length",arrayLength,"and array at exit generate", arr);
     };
 
     generate(arr.length);

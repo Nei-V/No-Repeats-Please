@@ -24,3 +24,5 @@ https://personalzone-hulgokm2zfcmm9u.netdna-ssl.com/wp-content/uploads/2017/04/r
 8. Using  conditional (ternary) operator instead of IF ELSE, for example in this function if int is even, use 0, if not use i as the first argument of the function:
 
 swap(int % 2 ? 0 : i, int - 1);
+
+9. In regex, match returns as first term -position 0 - what you searched for and then the results.
